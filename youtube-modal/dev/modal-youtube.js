@@ -1,7 +1,14 @@
 // Obtener el código del video y los parámetros adicionales
 
-//match::regex -> str -> [str, undefined]
-const match = regex => str => str.match(regex)
+const toArray = Array.from;
+const isArray = Array.isArray;
+const makeArray = x => isArray(x) ? x : toArray(x);
+const copyArray = arr => arr.reduce((el, acc) => el.concat(acc), []);
+
+const _toConsumableArray = arr =>
+  isArray(arr)
+    ? copyArray(arr)
+    : makeArray(arr)
 
 
 const getYoutTubeVideoCode = url => {
