@@ -1,4 +1,9 @@
 // Obtener el código del video y los parámetros adicionales
+
+//match::regex -> str -> [str, undefined]
+const match = regex => str => str.match(regex)
+
+
 const getYoutTubeVideoCode = url => {
   let inicio = url.indexOf('?') + 3,
     final = url.indexOf('&',inicio),
@@ -45,3 +50,7 @@ const openYouTubeModal = selector => {
     })
   })
 };
+
+module.exports = {
+  getYoutTubeVideoCode
+}

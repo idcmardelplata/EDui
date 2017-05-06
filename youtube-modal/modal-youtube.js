@@ -1,6 +1,14 @@
 'use strict';
 
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+const toArray = Array.from;
+const isArray = Array.isArray;
+const makeArray = x => isArray(x) ? x : toArray(x);
+const copyArray = arr => arr.reduce((el, acc) => el.concat(acc), []);
+
+const _toConsumableArray = arr =>
+  isArray(arr)
+    ? copyArray(arr)
+    : makeArray(arr)
 
 // Obtener el código del video y los parámetros adicionales
 var getYoutTubeVideoCode = function getYoutTubeVideoCode(url) {
